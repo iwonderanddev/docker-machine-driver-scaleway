@@ -29,6 +29,15 @@ $ brew install scaleway/scaleway/docker-machine-driver-scaleway --HEAD
 $ go get -u github.com/scaleway/docker-machine-driver-scaleway
 ```
 
+## Build
+
+### Docker
+```shell
+docker compose up -d
+docker compose exec driver-scaleway bash
+docker#> go build -buildvcs=false -o build/docker-machine-driver-scaleway-v2
+```
+
 <!-- ### Binary
 
 You can find sources and pre-compiled binaries [here](https://github.com/scaleway/docker-machine-driver-scaleway/releases/latest)
@@ -210,8 +219,14 @@ More [examples](https://github.com/scaleway/docker-machine-driver-scaleway/tree/
 
 ## Changelog
 
+### v2.1.0 (2023-10-27)
+* Use Ubuntu Jammy
+* Add volume extension
+* Update Go to 1.20
+* Update scaleway-sdk-go to v1.0.0-beta.21
+
 ### v2.0.0 (2020-11-19)
-* Use scaleway-sdk-go instead go-scaleway ( quick and dirty but functional :) ) 
+* Use scaleway-sdk-go instead go-scaleway ( quick and dirty but functional :) )
 * Fix remove instance with wrong state [issue #99](https://github.com/scaleway/docker-machine-driver-scaleway/issues/99)
 
 ### v1.6 (2018-12-03)
